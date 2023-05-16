@@ -2,19 +2,26 @@ package main.se.kth.iv1350.model;
 
 import java.util.HashMap;
 
+import main.se.kth.iv1350.DTO.ItemDescriptionDTO;
 import main.se.kth.iv1350.integration.Item;
 
 public class SaleInfo {
     TimeAndDate timeAndDate = new TimeAndDate();
     HashMap<Integer,Item> items = new HashMap<Integer, Item>();
 
-    void addItem(Item item) {
+    ItemDescriptionDTO addItem(Item item) {
         int currID = item.getItemDesc().getId();
+
+        Item currItem = items.get(currID);
         
-        if(items.get(currID) == null)
+        if(currItem == null){
             items.put(currID, item);
-        else
-            items.get(currID).increaseQuantity(item.getQuantity());
+            currItem = items.get(currID);
+        } else {
+            currItem.increaseQuantity(item.getQuantity());
+        }
+
+        return currItem.getItemDesc();
     }
 
     /**

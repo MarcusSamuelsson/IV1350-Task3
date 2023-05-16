@@ -37,6 +37,14 @@ public class Payment {
     }
 
     /**
+     * Returns the totalAmount
+     * @return totalAmount
+     */
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    /**
      * Converts the Payment to an easily readable string
      */
     public String toString() {

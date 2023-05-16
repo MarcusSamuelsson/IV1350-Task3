@@ -1,5 +1,6 @@
 package main.se.kth.iv1350.model;
 
+import main.se.kth.iv1350.DTO.ItemDescriptionDTO;
 import main.se.kth.iv1350.integration.Item;
 
 public class Sale {
@@ -15,10 +16,15 @@ public class Sale {
      * Adds ant item to the salesinfo for information on the product and gives payment infor of the item to payment.
      * 
      * @param item object holding infomation of the object in the being scanned
+     * 
+     * @return the current item description and the current total cost.
     */
-    public void addItem(Item item) {
-        saleInfo.addItem(item);
+    public String addItem(Item item) {
+        ItemDescriptionDTO currItem = saleInfo.addItem(item);
         payment.addItem(item);
+        
+        return "Item description:\n" + currItem.getName() + "\n" + currItem.getPrice() + "\nVAT: " + currItem.getVAT() + "\nWeight: " +
+        currItem.getWeight() + "g\n\nRunning total: " + payment.getTotalAmount();
     }
 
     /**

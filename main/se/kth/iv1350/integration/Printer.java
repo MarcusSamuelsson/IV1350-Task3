@@ -1,4 +1,8 @@
-package main.se.kth.iv1350.model;
+package main.se.kth.iv1350.integration;
+
+import main.se.kth.iv1350.model.Sale;
+import main.se.kth.iv1350.model.SaleInfo;
+
 public class Printer {
     SaleInfo reciept;
 

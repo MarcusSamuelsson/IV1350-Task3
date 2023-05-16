@@ -6,8 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import main.se.kth.iv1350.integration.ExternalSystems;
-import main.se.kth.iv1350.integration.Item;
-import main.se.kth.iv1350.model.Printer;
+import main.se.kth.iv1350.integration.Printer;
 import main.se.kth.iv1350.model.Register;
 import main.se.kth.iv1350.model.Sale;
 import main.se.kth.iv1350.controller.Controller;

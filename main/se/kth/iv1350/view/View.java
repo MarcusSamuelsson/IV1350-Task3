@@ -22,13 +22,14 @@ public class View {
     }
 
     /**
-     * Finds scanned item using id
+     * Finds scanned item using id, prints the items description
+     * and the running total.
      * 
      * @param id is the identification number for the product
      * @param quantity the quantity of the scanned product
      */
-    public void scanItem(int itemID, int quantity) {
-        controller.getItemWithID(itemID, quantity);
+    public void getItemWithID(int itemID, int quantity) {
+        System.out.println(controller.getItemWithID(itemID, quantity));
     }
 
     /**

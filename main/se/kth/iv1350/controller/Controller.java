@@ -2,7 +2,7 @@ package main.se.kth.iv1350.controller;
 
 import main.se.kth.iv1350.integration.ExternalSystems;
 import main.se.kth.iv1350.integration.Item;
-import main.se.kth.iv1350.model.Printer;
+import main.se.kth.iv1350.integration.Printer;
 import main.se.kth.iv1350.model.Register;
 import main.se.kth.iv1350.model.Sale;
 
@@ -39,11 +39,14 @@ public class Controller {
      * @param id is the identification number for the product
      * @param quantity the quantity of the scanned product
      */
-    public void getItemWithID(int id, int quantity) {
+    public String getItemWithID(int id, int quantity) {
         Item item = externalSystems.getInventorySystem().getItemWithID(id, quantity);
         
-        if(item != null)
-            sale.addItem(item);
+        if(item != null){
+            return "\n\n" + sale.addItem(item) + "\n\n";
+        }
+
+        return "Item does not exists!\nRunning total: " + sale.getPayment().getTotalAmount();
     }
 
     /**

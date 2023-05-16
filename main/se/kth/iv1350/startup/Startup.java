@@ -2,7 +2,7 @@ package main.se.kth.iv1350.startup;
 
 import main.se.kth.iv1350.controller.Controller;
 import main.se.kth.iv1350.integration.ExternalSystems;
-import main.se.kth.iv1350.model.Printer;
+import main.se.kth.iv1350.integration.Printer;
 import main.se.kth.iv1350.model.Register;
 import main.se.kth.iv1350.view.View;
 
@@ -18,12 +18,12 @@ public class Startup {
         Controller contr = new Controller(extSys, reg, prntr);
         View view = new View(contr);
         view.startSale();
-        view.scanItem(0, 1);
-        view.scanItem(2, 1);
-        view.scanItem(3, 1);
-        view.scanItem(0, 1);
-        view.scanItem(1, 5);
-        view.scanItem(4, 2);
+        view.getItemWithID(0, 1);
+        view.getItemWithID(2, 1);
+        view.getItemWithID(3, 1);
+        view.getItemWithID(0, 1);
+        view.getItemWithID(1, 5);
+        view.getItemWithID(4, 2);
         view.checkAndApplyDiscount(0);
         view.pay(300);
     }
